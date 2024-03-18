@@ -4,7 +4,8 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 let userSelectedDate;
 let intervalId = null;
-
+const startBtn = document.querySelector('[data-start]');
+startBtn.disabled = true;
 const clockFields = {
   days: document.querySelector('[data-days]'),
   hours: document.querySelector('[data-hours]'),
@@ -21,7 +22,7 @@ const fp = flatpickr(myInputDate, {
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0];
     console.log(selectedDates[0]);
-    let startBtn = document.querySelector('[data-start]');
+
     if (selectedDates[0].getTime() <= new Date().getTime()) {
       startBtn.disabled = true;
       iziToast.show({
