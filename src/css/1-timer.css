@@ -24,8 +24,8 @@
 }
 
 #datetime-picker:disabled {
-  background-color: #808080;
-  color: #fafafa;
+  background-color: #fafafa;
+  color: #808080;
 }
 
 button[data-start] {
