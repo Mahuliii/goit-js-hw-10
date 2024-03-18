@@ -24,7 +24,6 @@ const fp = flatpickr(myInputDate, {
     let startBtn = document.querySelector('[data-start]');
     if (selectedDates[0].getTime() <= new Date().getTime()) {
       startBtn.disabled = true;
-
       iziToast.show({
         backgroundColor: 'rgba(239, 64, 64, 1)',
         title: 'Error',
@@ -55,14 +54,14 @@ const fp = flatpickr(myInputDate, {
   },
 });
 const updateClock = (days, hours, minutes, seconds) => {
-  clockFields.days.textContent = formatValue(days);
-  clockFields.hours.textContent = formatValue(hours);
-  clockFields.minutes.textContent = formatValue(minutes);
-  clockFields.seconds.textContent = formatValue(seconds);
+  clockFields.days.textContent = addLeadingZero(days);
+  clockFields.hours.textContent = addLeadingZero(hours);
+  clockFields.minutes.textContent = addLeadingZero(minutes);
+  clockFields.seconds.textContent = addLeadingZero(seconds);
 };
 
-const formatValue = value => {
-  return value < 10 ? '0' + value : value;
+const addLeadingZero = value => {
+  return String(value).padStart(2, '0');
 };
 
 const convertMs = milliseconds => {
