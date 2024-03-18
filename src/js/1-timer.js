@@ -2,7 +2,7 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-let userSelectedDate;
+
 let intervalId = null;
 const startBtn = document.querySelector('[data-start]');
 startBtn.disabled = true;
@@ -20,7 +20,7 @@ const fp = flatpickr(myInputDate, {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    userSelectedDate = selectedDates[0];
+    let userSelectedDate = selectedDates[0];
     console.log(selectedDates[0]);
 
     if (selectedDates[0].getTime() <= new Date().getTime()) {
